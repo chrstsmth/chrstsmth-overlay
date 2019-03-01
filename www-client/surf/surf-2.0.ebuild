@@ -2,13 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit savedconfig toolchain-funcs
+inherit git-r3 savedconfig toolchain-funcs
 
 DESCRIPTION="a simple web browser based on WebKit/GTK+"
 HOMEPAGE="https://surf.suckless.org/"
-SRC_URI="
-	https://dl.suckless.org/${PN}/${P}.tar.gz
-"
+
+EGIT_REPO_URI="https://github.com/chrstsmth/surf.git"
+EGIT_BRANCH="chrstsmth/chrstsmth-overlay"
+SRC_URI=""
 
 LICENSE="MIT"
 SLOT="0"
@@ -35,9 +36,6 @@ RDEPEND="
 		x11-terms/st
 	)
 "
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.0-gentoo.patch
-)
 
 pkg_setup() {
 	if ! use savedconfig; then
