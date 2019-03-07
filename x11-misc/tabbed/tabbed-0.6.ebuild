@@ -22,25 +22,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-src_prepare() {
-	sed config.mk \
-		-e '/^CC/d' \
-		-e 's|/usr/local|/usr|g' \
-		-e 's|^CFLAGS.*|CFLAGS += -std=c99 -pedantic -Wall $(INCS) $(CPPFLAGS)|g' \
-		-e 's|^LDFLAGS.*|LDFLAGS += $(CFLAGS) $(LIBS)|g' \
-		-e 's|^LIBS.*|LIBS = -lX11|g' \
-		-e 's|{|(|g;s|}|)|g' \
-		-i || die
-
-	sed Makefile \
-		-e 's|{|(|g;s|}|)|g' \
-		-e '/^[[:space:]]*@echo/d' \
-		-e 's|^	@|	|g' \
-		-i || die
-
-	restore_config config.h
-}
-
 src_compile() {
 	emake CC=$(tc-getCC)
 }
