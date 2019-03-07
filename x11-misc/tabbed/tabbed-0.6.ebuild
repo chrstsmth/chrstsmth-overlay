@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
-inherit savedconfig toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Simple generic tabbed fronted to xembed aware applications"
 HOMEPAGE="https://tools.suckless.org/tabbed"
@@ -27,5 +27,4 @@ src_compile() {
 }
 src_install() {
 	default
-	save_config config.h
 }
