@@ -6,7 +6,10 @@ inherit savedconfig toolchain-funcs
 
 DESCRIPTION="Simple generic tabbed fronted to xembed aware applications"
 HOMEPAGE="https://tools.suckless.org/tabbed"
-SRC_URI="https://dl.suckless.org/tools/${P}.tar.gz"
+
+EGIT_REPO_URI="https://github.com/chrstsmth/tabbed.git"
+EGIT_BRANCH="chrstsmth/chrstsmth-overlay"
+SRC_URI=""
 
 LICENSE="MIT"
 SLOT="0"
